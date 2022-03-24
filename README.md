@@ -1,6 +1,5 @@
 # vue-basic-project
 
-https://user-images.githubusercontent.com/66038941/159986649-c282a2c0-9a13-40b9-b634-9d92b5a2effd.png
 ## Project setup
 ```
 yarn install
