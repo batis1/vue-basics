@@ -1,4 +1,5 @@
 # vue-basic-project
+![image](https://user-images.githubusercontent.com/66038941/159986898-3e8b5498-b31e-434c-a718-442039c9b3fe.png)
 
 ## Project setup
 ```
