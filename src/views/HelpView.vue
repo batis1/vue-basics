@@ -1,17 +1,18 @@
 <template>
-  <div class="about">
+  <div class="Help">
     <h1>{{pageName}}</h1>
     <p>{{pageDesc}}</p>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "AboutView",
+  name: "HelpView",
   data: function () {
     return {
-      pageName: "About us",
-      pageDesc: "This is About us page",
+      pageName: "Help",
+      pageDesc: "This is Help page",
     };
   },
 };
