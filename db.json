@@ -90,6 +90,19 @@
       "content": "aadrd",
       "date": "",
       "time": ""
+    },
+    {
+      "id": 7765,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "housing",
+      "author": "mohammed",
+      "title": "First post",
+      "content": "this is the first post",
+      "date": "",
+      "time": ""
     }
   ]
 }

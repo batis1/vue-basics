@@ -8,7 +8,7 @@
     <!-- <button @click="incrementCount">Increment</button> -->
     <!-- <p>{{count}}</p> -->
     <div class="container">
-      <h1 class="create-form-title">Create an Post</h1>
+      <h1 class="create-form-title">Create A Post</h1>
       <label>Category</label>
 
       <form @submit.prevent="createPost">

@@ -5,7 +5,7 @@
       :to="{ name: 'blogShow', params: { id: post.id } }"
     >
       <!-- <div class="post-card -shadow"> -->
-      <h3 class="post-title"> here is the post {{post.title}}</h3>
+      <h3 class="post-title">{{post.title}}</h3>
       <span class="post-view">10</span>
 
       <span class="post-date">@{{ post.time }} on {{ post.date }}</span>
