@@ -12,7 +12,7 @@
         tag="li"
       ><a>增量任务</a></router-link>
       <router-link
-        to="/blog"
+        to="/posts"
         tag="li"
       ><a>博客</a></router-link>
       <router-link
@@ -63,6 +63,7 @@ li {
   display: inline-block;
   font-size: 18px;
 }
+
 a {
   color: #fff;
   text-decoration: none;

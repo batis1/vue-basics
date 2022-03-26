@@ -5,6 +5,8 @@ import AboutView from "../views/AboutView.vue";
 import HelpView from "../views/HelpView.vue";
 import BlogView from "../views/BlogView.vue";
 import LoginView from "../views/LoginView.vue";
+import PostViewShow from "../views/PostViewShow.vue";
+import PostCreateView from "../views/PostCreateView.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -24,9 +26,20 @@ const routes = [
         component: HelpView,
     },
     {
-        path: "/blog",
-        name: "blog",
+        path: "/posts",
+        name: "posts",
         component: BlogView,
+    },
+    {
+        path: "/posts/create",
+        name: "PostCreate",
+        component: PostCreateView,
+    },
+    {
+        path: "/posts/:id",
+        name: "blogShow",
+        component: PostViewShow,
+        props: true,
     },
     {
         path: "/login",

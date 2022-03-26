@@ -2,82 +2,44 @@
   <div class="Blog">
     <h1>{{pageName}}</h1>
     <div class="container">
+      <div class="action-container">
+        <router-link
+          to="/posts/create"
+          tag="div"
+        >
+          <button
+            type="primary"
+            class="button"
+          >Add A Post</button>
+        </router-link>
+      </div>
       <div class="row">
         <div class="col-md-8">
           <div class="posts-area">
-            <BlogPosts
+            <BlogPostCard
               v-for="post in posts"
               :key="post.id"
-              :views="post.views"
-              :title="post.title"
-              :date="post.date"
-              :content="post.content"
-              :author="post.author"
-              :category="post.category"
+              :post="post"
             />
+            <template v-if="page !=1">
+              <router-link
+                :to="{name:'posts', query: {page: page-1}}"
+                rel="prev"
+              > Prev Page</router-link>
+            </template>
+            <router-link
+              :to="{name:'posts', query: {page: page-1}}"
+              rel="prev"
+            > Prev Page</router-link> |
+            <router-link
+              :to="{name:'posts', query: {page: page+1}}"
+              rel="next"
+            > Next Page</router-link> |
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="
+              col-md-4">
           <div class="sidebar">
-            <el-form
-              ref="form"
-              :model="sizeForm"
-              label-width="120px"
-              size="mini"
-            >
-              <el-form-item label="post title">
-                <el-input v-model="sizeForm.name"></el-input>
-              </el-form-item>
-              <el-form-item label="post content">
-                <el-input
-                  type="textarea"
-                  :rows="2"
-                  placeholder="Please input"
-                  v-model="sizeForm.name"
-                >
-                </el-input>
-              </el-form-item>
-              <el-form-item label="date">
-                <el-col :span="11">
-                  <el-date-picker
-                    type="date"
-                    placeholder="Pick a date"
-                    v-model="sizeForm.date1"
-                    style="width: 100%;"
-                  ></el-date-picker>
-                </el-col>
-              </el-form-item>
-              <el-form-item label="views">
-                <el-input v-model="sizeForm.name"></el-input>
-              </el-form-item>
-              <el-form-item label="Author">
-                <el-input v-model="sizeForm.name"></el-input>
-              </el-form-item>
-              <el-form-item label="category">
-                <el-select
-                  v-model="sizeForm.region"
-                  placeholder="please select your zone"
-                >
-                  <el-option
-                    label="Zone one"
-                    value="shanghai"
-                  ></el-option>
-                  <el-option
-                    label="Zone two"
-                    value="beijing"
-                  ></el-option>
-                </el-select>
-              </el-form-item>
-
-              <el-form-item size="large">
-                <el-button
-                  type="primary"
-                  @click="onSubmit"
-                >Create</el-button>
-                <el-button>Cancel</el-button>
-              </el-form-item>
-            </el-form>
-
             <!-- <BlogSidebar /> -->
           </div>
         </div>
@@ -90,36 +52,37 @@
 </template>
 
 <script>
-import BlogPosts from "@/components/Blog/BlogPosts.vue";
+import BlogPostCard from "@/components/Blog/BlogPostCard.vue";
 import BlogSidebar from "@/components/Blog/BlogSidebar.vue";
-import JsonPosts from "../json/blog_posts.json";
+import { mapState } from "vuex";
+// import JsonPosts from "../json/blog_posts.json";
 
 export default {
   name: "BlogView",
   data: function () {
     return {
-      sizeForm: {
-        name: "",
-        region: "",
-        date1: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: "",
-      },
       pageName: "博客",
       pageDesc: "This is a 博客 page",
-      posts: JsonPosts,
+      //   posts: JsonPosts,
     };
   },
   components: {
-    BlogPosts,
+    BlogPostCard,
     BlogSidebar,
   },
   methods: {
     onSubmit() {
       console.log("submit!");
     },
+  },
+  created() {
+    this.$store.dispatch("fetchPosts", { perPage: 3, page: this.page });
+  },
+  computed: {
+    page() {
+      return parseInt(this.$route.query.page) || 1;
+    },
+    ...mapState(["posts"]),
   },
 };
 </script>
@@ -132,5 +95,83 @@ export default {
 .col-md-4 {
   margin: 20px;
   display: flex;
+}
+.el-button-color {
+  background-color: #333;
+  color: #fff;
+  margin-right: 1rem;
+}
+.create-button:hover {
+  color: grey;
+}
+.action-container {
+  display: flex;
+  justify-content: center;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 40px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s linear;
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* .button:hover {
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+.button:active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  box-shadow: none;
+}
+.button:focus {
+  outline: 0;
+}
+.button:disabled {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  box-shadow: none;
+}
+.button + .button {
+  margin-left: 1em;
+}
+.button.-fill-gradient {
+  background: linear-gradient(to right, #16c0b0, #84cf6a);
+  color: #ffffff;
+}
+.button.-fill-gray {
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+.button.-size-small {
+  height: 32px;
+}
+.button.-icon-right {
+  text-align: left;
+  padding: 0 20px;
+}
+.button.-icon-right > .icon {
+  margin-left: 10px;
+}
+.button.-icon-left {
+  text-align: right;
+  padding: 0 20px;
+}
+.button.-icon-left > .icon {
+  margin-right: 10px;
+}
+.button.-icon-center {
+  padding: 0 20px;
 }
 </style>

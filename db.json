@@ -1,0 +1,95 @@
+{
+  "posts": [
+    {
+      "id": 3148742,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "animal welfare",
+      "author": "mohammed",
+      "title": "learn vue.js",
+      "content": "Here is the content of how to learn",
+      "date": "",
+      "time": ""
+    },
+    {
+      "id": 2154120,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "sustainability",
+      "author": "batis",
+      "title": "this is the best content ever",
+      "content": "afad",
+      "date": "",
+      "time": ""
+    },
+    {
+      "id": 3978413,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "nature",
+      "author": "batis",
+      "title": "Learn Vue.js in 3 days",
+      "content": "Push yourself to learn as much as you can",
+      "date": "",
+      "time": ""
+    },
+    {
+      "id": 4053603,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "nature",
+      "author": "afdaeaw",
+      "title": "test the routeraf",
+      "content": "afad",
+      "date": "",
+      "time": ""
+    },
+    {
+      "id": 1894760,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "sustainability",
+      "author": "adad",
+      "title": "fad",
+      "content": "adad",
+      "date": "",
+      "time": ""
+    },
+    {
+      "id": 4906113,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "nature",
+      "author": "adawfg",
+      "title": "aafaagasgt",
+      "content": "adafv",
+      "date": "",
+      "time": ""
+    },
+    {
+      "id": 5420292,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "",
+      "author": "adaed",
+      "title": "sASafd",
+      "content": "aadrd",
+      "date": "",
+      "time": ""
+    }
+  ]
+}

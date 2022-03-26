@@ -12,7 +12,13 @@ import VueAxios from "vue-axios";
 Vue.use(VueAxios, axios);
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
-
+import "./filters"; //Global Filters
+// Make Bold custom Directive
+Vue.directive("bold", {
+    bind: function (el) {
+        el.style.fontWeight = "bold";
+    },
+});
 new Vue({
     router,
     store,
